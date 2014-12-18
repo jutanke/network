@@ -13,6 +13,9 @@ exports.Interface = [
 
     /*
     Implement {event.EventEmitter}
+    We expect the following events:
+        {statechange}: applies when the state changes: @params = ["disconnect", "partial", "connect"]
+        {receive}: message is send: @params = (sender {Peer}, message {Object||String}
      */
     "on",
 
