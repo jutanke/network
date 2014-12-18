@@ -1,0 +1,31 @@
+{
+  "name": "p2pnetwork",
+  "version": "0.0.1",
+  "description": "API for aritrary networks between client systems (Peer-to-Peer)",
+  "main": "lib/network.js",
+  "scripts": {
+    "test": "index.html",
+    "debug": "browserify lib/network.js --debug --s Network > build/network.bundle.debug.js",
+    "build": "browserify lib/network.js --s Network | uglifyjs > build/network.bundle.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justayak/network.git"
+  },
+  "keywords": [
+    "Peer-to-Peer",
+    "p2p",
+    "network",
+    "api"
+  ],
+  "author": "= <=>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/justayak/network/issues"
+  },
+  "homepage": "https://github.com/justayak/network",
+  "dependencies": {
+    "yutils": ">=0.0.8",
+    "cyclonp2p": ">=0.0.2"
+  }
+}
