@@ -4,7 +4,7 @@ API for arbitrary Network implementations between clients (Peer-to-Peer).
 
 The API needs implementations of the following interfaces:
 
-##BroadcastDefinition
+##Interface: BroadcastDefinition
 
 ###stopPropagation
 gets called when a broadcast message reaches this node. This function evaluates if the node should propagate the message further or if it should stop sending it. This is defined by either returning {true} (Stop) or {false} (Keep propagating)
@@ -41,3 +41,24 @@ MyBroadcastDefinition.prototype.decorateBroadcastMessage = function(message){
     return message.payload;
 }
 ```
+
+##Interface: Membership
+
+
+###launch
+Starts the Handshaking. This must be done once to connect to the network. {launch} takes a callback as parameter that gets called when the ICE-Candidates are gathered. The {offer} that is created must be transmitted to the other peer (How this is done is out of the scope of this library) in order to initiate the handshake.
+```javascript
+...
+// onOffer is a function callback (parameter: string)
+MyMembership.prototype.launch = function(onOffer) {
+    // create an offer and get a string blob
+    MyWebRTC.createOffer();
+    MyWebRTC.on("allicecandidates+offer", onOffer);
+}
+```
+Implement {event.EventEmitter}. We expect the following events:
+* {*statechange*}: applies when the state changes: @params = ["disconnect", "partial", "connect"]
+* {*receive*}: message is send. This is already filtered: @params = (sender {Peer}, message {Object||String}
+* {*churn*}: a received message, unfiltered by BroadcastDef: @params: (sender {Peer}, message {Object||String}
+     
+###on
