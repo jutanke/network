@@ -22,11 +22,5 @@ exports.Interface = [
     Remove the decoration of the message so that the application can interact with the broadcast message
     transparently. This gets called whenever a broadcast message hits a peer and is propagated to the application.
      */
-    "removeDecoration",
-
-    // TODO: add more stuff
-    "test1",
-
-    // TODO: add more stuff2
-    "test2"
+    "removeDecoration"
 ];

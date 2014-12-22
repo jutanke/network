@@ -15,7 +15,8 @@ exports.Interface = [
     Implement {event.EventEmitter}
     We expect the following events:
         {statechange}: applies when the state changes: @params = ["disconnect", "partial", "connect"]
-        {receive}: message is send: @params = (sender {Peer}, message {Object||String}
+        {receive}: message is send. This is already filtered: @params = (sender {Peer}, message {Object||String}
+        {churn}: a received message, unfiltered by BroadcastDef: @params: (sender {Peer}, message {Object||String}
      */
     "on",
 
@@ -42,6 +43,14 @@ exports.Interface = [
     This function checks if the membership protocol is already connected to the network and is "ready" or if
     the handshake is still pending.
     The parameter is a callback that gets called as soon as the peer is connected to the network.
+    This function must apply the callback immediately, if it is ready!
+
+    var membership = new Membership(...);
+
+    membership.ready(function(){
+        // The membership system is ready and can be used
+    });
+
      */
     "ready"
 
