@@ -2,6 +2,39 @@
 
 API for arbitrary Network implementations between clients (Peer-to-Peer).
 
+```html
+<head>
+    ...
+    <script src="your/path/network.bundle.js"></script>
+    <script src="...jquery.js></script>
+    ...
+    ...
+    <body>
+        ...
+    </body>
+    <script>
+        $(function(){
+            
+            // e.g. Cyclon)
+            var cyclon = new Cyclon(..);
+            var vv = new VVBroadcastDefinition(..);
+            
+            var network = Network.init({
+                membership : cyclon,
+                broadcastDefinition: vv
+            });
+            
+            network.ready(function(){
+                // when we get this callback the program is ready to 
+                // communicate!
+            });
+            
+            //TODO: we need to do the handshake
+        });
+    <script>
+</head>
+```
+
 The API needs implementations of the following interfaces:
 
 ##Interface: BroadcastDefinition
