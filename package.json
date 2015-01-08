@@ -1,6 +1,6 @@
 {
   "name": "p2pnetwork",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "API for aritrary networks between client systems (Peer-to-Peer)",
   "main": "lib/network.js",
   "scripts": {
@@ -25,7 +25,6 @@
   },
   "homepage": "https://github.com/justayak/network",
   "dependencies": {
-    "yutils": ">=0.0.8",
-    "cyclonp2p": ">=0.0.2"
+    "yutils": ">=0.0.8"
   }
 }
