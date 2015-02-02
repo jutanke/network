@@ -1,6 +1,6 @@
 {
   "name": "p2pnetwork",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "API for aritrary networks between client systems (Peer-to-Peer)",
   "main": "lib/network.js",
   "scripts": {
